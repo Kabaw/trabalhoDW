@@ -1,0 +1,183 @@
+body
+{
+	background-color: #4C4C4C
+}
+
+
+#title
+{
+	font-size: 80pt;
+	color: white;
+	text-align: center;
+}
+
+
+#mainDiv
+{
+	position: relative;
+	float: top;
+	max-width: 1920px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1px;
+	/* overflow: auto; */
+}
+
+
+.mainDivs
+{
+	position: relative;
+	float: top;
+	/* max-width: 1920px; */
+	/* margin-left: auto; */
+	/* margin-right: auto; */
+	border: 1px solid black;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	/* overflow: auto; */
+}
+
+#topDiv
+{
+	height: 150px;
+	background-color: #A4C400;
+}
+
+#profileDiv
+{
+	float: left;
+	margin-left: 5px;
+	margin-top: 5px;
+	width: 138px;
+	height: 138px;
+	border: 1px solid black;
+	background-color: #4C4C4C
+}
+
+
+#greetingsDiv
+{
+	font-size: 15pt;
+	float: left;
+	margin-top: 10px;
+	margin-left: 5px;
+	/*border: 1px solid black;*/
+}
+
+
+#profileImage
+{
+	width: 138px;
+	height: 138px;
+}
+
+
+#logoutDiv
+{
+	margin-top: 5px;
+	margin-right: 5px;
+	float: right;
+	width: 40px;
+	height: 40px;
+}
+
+
+#logoutImage
+{
+	width: 40px;
+	height: 40px;
+}
+
+
+#menuTable
+{
+	font-size: 20pt;
+	margin-top: 100px;
+	margin-right: 100px;
+	float: right;
+	width: 40px;
+	height: 40px;
+}
+
+.menuTableTD
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 1px solid black;
+	background-color: #4C4C4C
+}
+
+
+#middleDiv
+{
+	position: relative;
+	/*max-width: 1920px;
+	margin-left: auto;
+	margin-right: auto;*/
+	
+	/* margin-top: 5px; */
+	/*border: 1px solid black;
+	background-color: #A4C400*/
+	border: none;
+	border-left: 1px solid black;
+}
+
+
+#leftDiv
+{
+	position: relative;
+	float: left;
+	width: 25%;
+	padding: 5px;
+	/* left: -2px; */
+	/* width: 250px; */
+	/*height: 500px;*/
+	/*height: 100%;*/
+	height: 500px;
+	border: 1px solid black;
+	background-color: #A4C400;
+	/* overflow: auto; */
+}
+
+
+#leftDivFrame
+{
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+}
+
+
+#rightDiv
+{
+	position: relative;
+	float: right;
+	padding: 5px;
+	width: 70%;
+	height: 500px;
+	/*margin-left: 5px;*/
+	/*width: 82%;
+	height: 100%;
+	margin-right: -2px;
+	border: 1px solid black;*/
+	background-color: #A4C400;
+}
+
+
+#rightDivFrame
+{
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+}
+
+
+#bottomDiv
+{
+	position: relative;
+	float: left;
+	text-align: center;
+	width: 100%;
+	height: 20px;
+	background-color: #A4C400;
+}

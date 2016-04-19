@@ -1,0 +1,79 @@
+body
+{
+	background-color: #4C4C4C
+}
+
+
+/*#mainTable
+{
+	color: white;
+	border: 1px solid black;
+}*/
+
+
+.tr
+{
+	background-color: #A4C400;
+	/*margin-bottom: 5px; Não está fazendo diferença*/
+	
+}
+
+
+#titleTD
+{
+	font-size: 16pt;
+	font-weight: bold;
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	border: 1px solid black;
+}
+
+
+.gameImageTD
+{
+	width: 150px;
+	height: 150px;
+	border: 1px solid black;
+}
+
+
+.gameImage
+{
+	width: 200px;
+	height: 200px;
+}
+
+
+.gameInfoFatherTD
+{
+	width: 100%;
+	height: 40px;
+	border: 1px solid black;
+	padding: 5px 5px 5px 5px;
+}
+
+
+#gameInfoTable
+{
+	height: 100%;
+	/*border: 1px solid black;*/
+}
+
+
+#gameNameTD
+{
+	text-align: left;
+	font-size: 25pt;
+	font-weight: bold;
+	/*border: 1px solid black;*/
+}
+
+
+.gameInfoSonTD
+{
+	text-align: left;
+	width: 250px;
+	/*border: 1px solid black;*/
+}
+
