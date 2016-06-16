@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link href="#{request.contextPath}/css/cadastroLogin.css"
+		rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:panelGrid>
+			<p:row>
+				<p:column>
+					<p:outputLabel for="nome" value="Nome: " />
+				</p:column>
+				<p:column>
+					<p:inputText id="nome" label="nome"
+						value="#{usuarioBean.usuario.nome}" />
+				</p:column>
+
+			</p:row>
+			<p:row>
+				<p:column>
+					<p:outputLabel for="sobrenome" value="Sobrenome: " />
+				</p:column>
+				<p:column>
+					<p:inputText id="sobrenome"
+						value="#{usuarioBean.usuario.sobrenome}" />
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<p:outputLabel for="email" value="Email" />
+				</p:column>
+				<p:column>
+					<p:inputText id="email" value="#{usuarioBean.usuario.email}" />
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<p:outputLabel for="sexo" value="Sexo" />
+				</p:column>
+				<p:column>
+					<p:inputText id="sexo" value="#{usuarioBean.usuario.sexo}" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column>
+					<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
+				</p:column>
+				<p:column>
+					<p:inputText id="dataNascimento"
+						value="#{usuarioBean.usuario.dataNascimento}" />
+				</p:column>
+			</p:row>
+
+
+
+
+
+
+			<p:row>
+				<p:column colspan="2" >
+						<div class="colunabtnCadastro">
+							<p:commandButton class="botoesCadastro"
+							action="#{usuarioBean.cadastrar}" value="Cadastrar" />
+						</div>
+						<div class="colunabtnCadastro">
+							<p:commandButton class="botoesCadastro"
+							action="#{usuarioBean.voltar}" value="Voltar" />
+						</div>
+						
+				</p:column>
+
+
+			</p:row>
+
+		</p:panelGrid>
+	</h:form>
+
+</h:body>
+</html>

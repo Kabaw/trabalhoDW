@@ -1,0 +1,26 @@
+.colunabtnCadastro{
+	position: relative;
+	height:2em;
+	display:inline-block;
+	width:170px;
+    /*span12 text-cente*/
+}
+
+.botoesCadastro{
+	margin: 0;
+	position: absolute;
+	width:150px;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%)
+}
+
+
+body{
+	margin: 0;
+	position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%)
+}
+
