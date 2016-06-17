@@ -18,5 +18,15 @@ public class UsuarioBean {
 		this.usuario = usuario;
 	}
 	
+	public String voltar(){
+		return "voltar";
+	}
+	
+	public void cadastrar(){
+		
+	}
+	
+	
+	
 	
 }
