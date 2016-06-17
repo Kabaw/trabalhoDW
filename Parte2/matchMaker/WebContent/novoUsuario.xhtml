@@ -55,14 +55,10 @@
 					<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
 				</p:column>
 				<p:column>
-					<p:inputText id="dataNascimento"
-						value="#{usuarioBean.usuario.dataNascimento}" />
+					<p:inputMask id="dataNascimento"
+						value="#{usuarioBean.usuario.dataNascimento}" mask="99/99/9999"/>
 				</p:column>
 			</p:row>
-
-
-
-
 
 
 			<p:row>

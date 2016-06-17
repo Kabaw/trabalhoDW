@@ -27,10 +27,10 @@
 					<div class="botoesLogin">
 						<f:facet name="footer">
 							<p:commandButton id="login" value="Login" update="growl"
-								actionListener="#{userLoginView.login}"
+								action="#{userLoginView.login}"
 								oncomplete="handleLoginRequest(xhr, status, args)" />
 							<p:commandButton id="cancelar" value="Cancelar" update="growl"
-								actionListener="#{userLoginView.voltar}"
+								action="#{usuarioBean.voltar}"
 								oncomplete="handleLoginRequest(xhr, status, args)" />
 						</f:facet>
 					</div>
