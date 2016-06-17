@@ -6,14 +6,27 @@ import java.util.Date;
 public class Usuario implements Serializable{
 	private static final long serialVersionUID = -4610897792604370929L;
 	private Long id;
+	private String login;
+	private String senha;
 	private String nome;
 	private String sobrenome;
 	private String email;
 	private String sexo;
 	private Date dataNascimento;
-	private String img;
 	
 	
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -50,12 +63,7 @@ public class Usuario implements Serializable{
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	public String getImg() {
-		return img;
-	}
-	public void setImg(String img) {
-		this.img = img;
-	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
