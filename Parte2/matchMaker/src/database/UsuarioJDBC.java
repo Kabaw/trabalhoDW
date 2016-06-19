@@ -59,7 +59,7 @@ public class UsuarioJDBC {
 		
 		
 		try {
-			String sql = "select * from usuario where login = '" + usuario.getLogin() + "' and senha='"+Utils.geraMD5(usuario.getSenha())+"'";
+			String sql = "select * from usuario where login = '" + usuario.getLogin().trim() + "' and senha='"+Utils.geraMD5(usuario.getSenha())+"'";
 			// consulta => objeto que executa o SQL no banco de dados
 			consulta = conexao.createStatement();
 			
@@ -85,6 +85,48 @@ public class UsuarioJDBC {
 			conexao.close();
 			return retorno;
 		} catch (SQLException | NoSuchAlgorithmException e) {
+			throw new RuntimeException("Erro ao buscar um usuario: " + e);
+		}
+		
+	}
+	
+	public Usuario buscarPorLogin(String login) {
+		// abre conexao com o banco de dados
+		Connection conexao = ConectaSQL.geraConexao();
+		// executa o SQL no banco de dados
+		Statement consulta = null;
+		// contém os dados consultado da tabela
+		ResultSet resultado = null;
+		Usuario retorno = null;
+		
+		
+		try {
+			String sql = "select * from usuario where login = '" + login.trim() + "'";
+			// consulta => objeto que executa o SQL no banco de dados
+			consulta = conexao.createStatement();
+			
+			// Usuario
+			resultado = consulta.executeQuery(sql);
+			// Lê cada usuario
+			while (resultado.next()) {
+				retorno = new Usuario();
+				retorno.setId(resultado.getLong("id"));
+				retorno.setNome(resultado.getString("nome"));
+				retorno.setDataNascimento(resultado.getTimestamp("datanascimento"));
+				retorno.setSenha(resultado.getString("senha"));
+				retorno.setLogin(resultado.getString("login"));
+				retorno.setEmail(resultado.getString("email"));
+				retorno.setSexo(resultado.getString("sexo"));
+				retorno.setSobrenome(resultado.getString("sobrenome"));
+				
+				
+				break;
+			}
+			consulta.close();
+			resultado.close();
+			conexao.close();
+			return retorno;
+		} catch (SQLException e) {
 			throw new RuntimeException("Erro ao buscar um usuario: " + e);
 		}
 		

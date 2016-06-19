@@ -18,16 +18,16 @@
 			<h:panelGrid columns="2" cellpadding="5" class="gridlogin">
 				
 					<p:outputLabel for="username" value="Usuario:" />
-					<p:inputText id="username" value="#{userLoginView.username}"
+					<p:inputText id="username" value="#{usuarioBean.usuario.login}"
 						required="true" label="username" />
 
 					<p:outputLabel for="password" value="Senha:" />
-					<p:password id="password" value="#{userLoginView.password}"
+					<p:password id="password" value="#{usuarioBean.usuario.senha}"
 						required="true" label="password" />
 					<div class="botoesLogin">
 						<f:facet name="footer">
 							<p:commandButton id="login" value="Login" update="growl"
-								action="#{userLoginView.login}"
+								action="#{usuarioBean.login}"
 								oncomplete="handleLoginRequest(xhr, status, args)" />
 							<p:commandButton id="cancelar" value="Cancelar" update="growl"
 								action="#{usuarioBean.voltar}"

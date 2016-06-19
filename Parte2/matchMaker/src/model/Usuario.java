@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Usuario implements Serializable{
 	private static final long serialVersionUID = -4610897792604370929L;
@@ -13,6 +14,10 @@ public class Usuario implements Serializable{
 	private String email;
 	private String sexo;
 	private Date dataNascimento;
+	private List<Mensagem> mensagensEnviadas;
+	private List<Mensagem> mensagensRecebidas;
+	private List<Usuario> amigos;
+	private List<Jogo> jogos;
 	
 	
 	public String getLogin() {
@@ -67,8 +72,39 @@ public class Usuario implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	public List<Mensagem> getMensagensEnviadas() {
+		return mensagensEnviadas;
+	}
+	public void setMensagensEnviadas(List<Mensagem> mensagensEnviadas) {
+		this.mensagensEnviadas = mensagensEnviadas;
+	}
+	public List<Mensagem> getMensagensRecebidas() {
+		return mensagensRecebidas;
+	}
+	public void setMensagensRecebidas(List<Mensagem> mensagensRecebidas) {
+		this.mensagensRecebidas = mensagensRecebidas;
+	}
+	public List<Usuario> getAmigos() {
+		return amigos;
+	}
+	public void setAmigos(List<Usuario> amigos) {
+		this.amigos = amigos;
+	}
+	public List<Jogo> getJogos() {
+		return jogos;
+	}
+	public void setJogos(List<Jogo> jogos) {
+		this.jogos = jogos;
+	}
 	
-	
+	@Override
+	public boolean equals(Object obj) {
+		Usuario other = (Usuario) obj;
+		if (other != null && this.id !=null){
+			return this.id.equals(other.id);
+		}
+		return super.equals(obj);
+	}
 	
 	
 }
