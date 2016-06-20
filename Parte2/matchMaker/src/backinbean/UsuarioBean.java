@@ -8,14 +8,14 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import database.UsuarioJDBC;
+import dao.UsuarioDAO;
 import model.Usuario;
 
 @ManagedBean(name = "usuarioBean")
 @SessionScoped
 public class UsuarioBean {
 	private Usuario usuario = new Usuario();
-	private UsuarioJDBC usuarioJDBC = new UsuarioJDBC();
+	private UsuarioDAO usuarioDAO = new UsuarioDAO();
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -28,7 +28,7 @@ public class UsuarioBean {
 	@PostConstruct
 	public void init(){
 		usuario = new Usuario();
-		usuario.setId(null);
+		usuario.setIdUsuario(null);
 		usuario.setDataNascimento(new Date());
 		usuario.setEmail("");
 		usuario.setLogin("");
@@ -47,19 +47,19 @@ public class UsuarioBean {
 	}
 
 	public String cadastrar() {
-		if (usuarioJDBC.buscarPorLogin(usuario.getLogin()) != null){
+		if (usuarioDAO.buscarPorLogin(usuario.getLogin().trim()) != null){
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "login já cadastrado.", ""));
 			return "usuario";
 		}
-		usuarioJDBC.salvar(usuario);
+		usuarioDAO.salvar(usuario);
 		return "crioulogin";
 
 	}
 	
 	public String login(){
 		FacesContext context = FacesContext.getCurrentInstance();
-		Usuario user=usuarioJDBC.login(usuario);
+		Usuario user=usuarioDAO.login(usuario);
 		if (user == null){
 			context.addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario e/ou Senha incorretos.", ""));

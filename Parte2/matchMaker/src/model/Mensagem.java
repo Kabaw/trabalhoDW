@@ -1,24 +1,52 @@
 package model;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "mensagem")
 public class Mensagem implements Serializable{
 	private static final long serialVersionUID = 8637467182782752643L;
-	private Long id;
+	
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name="idMensagem")
+	private Long idMensagem;
+	
+	@Column(name="conteudo",length=1024,nullable=false)
 	private String conteudo;
+	
+	@Column(name="titulo",length=80,nullable=true)
 	private String titulo;
+	
+	@ManyToOne
+	@JoinColumn(name="idUsuario")
 	private Usuario remetente;
+	
+	@ManyToOne
+	@JoinColumn(name="idUsuario")
 	private Usuario destinatario;
+	
+	@Column(name="dataMensagem",nullable=false)
 	private Date dataMensagem;
 	
 	
-	public Long getId() {
-		return id;
+	public Long getIdMensagem() {
+		return idMensagem;
 	}
 	
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdMensagem(Long id) {
+		this.idMensagem = id;
 	}
 	public String getConteudo() {
 		return conteudo;
@@ -59,8 +87,8 @@ public class Mensagem implements Serializable{
 	@Override
 	public boolean equals(Object obj) {
 		Mensagem other = (Mensagem) obj;
-		if (other != null && this.id !=null){
-			return this.id.equals(other.id);
+		if (other != null && this.idMensagem !=null){
+			return this.idMensagem.equals(other.idMensagem);
 		}
 		return super.equals(obj);
 	}

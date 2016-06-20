@@ -1,14 +1,29 @@
 package model;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.io.Serializable;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 public class Jogo implements Serializable{
 
 	private static final long serialVersionUID = -3119678998469247487L;
+	
+	@ManyToMany (mappedBy="jogos")
 	private List<Usuario> usuarios;
+	
+	@Column(name="nome", length=20, nullable=false)
 	private String nome;
-	private Long id;
+	
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name="idJogo")
+	private Long idJogo;
 	
 	public List<Usuario> getUsuarios() {
 		return usuarios;
@@ -25,17 +40,17 @@ public class Jogo implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public Long getId() {
-		return id;
+	public Long getIdJogo() {
+		return idJogo;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdJogo(Long id) {
+		this.idJogo = id;
 	}
 	@Override
 	public boolean equals(Object obj) {
 		Jogo other = (Jogo) obj;
-		if (other != null && this.id !=null){
-			return this.id.equals(other.id);
+		if (other != null && this.idJogo !=null){
+			return this.idJogo.equals(other.idJogo);
 		}
 		return super.equals(obj);
 	}

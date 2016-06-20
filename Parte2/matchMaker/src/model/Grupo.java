@@ -1,20 +1,35 @@
 package model;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
 public class Grupo implements Serializable{
 	private static final long serialVersionUID = -3243567335862690405L;
-	private Long id;
+	
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name="idGrupo")
+	private Long idGrupo;
+	
+	@Column(name="nome", length=20, nullable=false)
 	private String nome;
+	
+	@ManyToMany (mappedBy="grupos")
 	private List<Usuario> usuarios;
 	
 	
-	public Long getId() {
-		return id;
+	public Long getIdGrupo() {
+		return idGrupo;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdGrupo(Long id) {
+		this.idGrupo = id;
 	}
 	public String getNome() {
 		return nome;
@@ -35,8 +50,8 @@ public class Grupo implements Serializable{
 	@Override
 	public boolean equals(Object obj) {
 		Grupo other = (Grupo) obj;
-		if (other != null && this.id !=null){
-			return this.id.equals(other.id);
+		if (other != null && this.idGrupo !=null){
+			return this.idGrupo.equals(other.idGrupo);
 		}
 		return super.equals(obj);
 	}

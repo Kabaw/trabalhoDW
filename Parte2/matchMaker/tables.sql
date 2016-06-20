@@ -1,45 +1,42 @@
 ﻿create table usuario(
-	id serial primary key,
-	login varchar(40) unique,
-	senha varchar(40),
-	nome varchar(20),
-	sobrenome varchar(20),
-	email varchar(20),
-	sexo varchar(1),
-	dataNascimento timestamp
+	idUsuario serial primary key,
+	login varchar(40) unique not null,
+	senha varchar(40) not null,
+	nome varchar(20) not null,
+	sobrenome varchar(20) not null,
+	email varchar(20) not null,
+	sexo varchar(1) not null,
+	dataNascimento timestamp not null
 );
 
 create table mensagem(
-	id serial primary key,
-	conteudo varchar(1024),
-	remetente integer references usuario(id),
-	destinatario integer references usuario(id),
-	dataMensagem timestamp,
+	idMensagem serial primary key,
+	conteudo varchar(1024) not null,
+	remetente integer references usuario(idUsuario) not null,
+	destinatario integer references usuario(idUsuario) not null,
+	dataMensagem timestamp not null,
 	titulo varchar(80)
 );
 
 create table grupo(
-	id serial primary key,
-	nome varchar(20)
+	idGrupo serial primary key,
+	nome varchar(20) not null
 );
 
 create table usuariogrupo(
-	idusuario integer references usuario(id),
-	idgrupo integer references grupo(id)
+	idusuario integer references usuario(idUsuario),
+	idgrupo integer references grupo(idGrupo)
 );
 
 create table jogo(
-	id serial primary key,
-	nome varchar(20)
+	idJogo serial primary key,
+	nome varchar(20) not null
 );
 
-create table amizade(
-	idusuario integer references usuario(id),
-	amigode integer references usuario(id)
-);
 
 create table usuariojogo(
-	idusuario integer references usuario(id),
-	idjogo integer references jogo(id)
+	idusuario integer references usuario(idUsuario),
+	idjogo integer references jogo(idJogo)
 );
+
 
