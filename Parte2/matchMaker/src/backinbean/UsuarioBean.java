@@ -5,14 +5,14 @@ import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import database.UsuarioJDBC;
 import model.Usuario;
 
 @ManagedBean(name = "usuarioBean")
-@ViewScoped
+@SessionScoped
 public class UsuarioBean {
 	private Usuario usuario = new Usuario();
 	private UsuarioJDBC usuarioJDBC = new UsuarioJDBC();

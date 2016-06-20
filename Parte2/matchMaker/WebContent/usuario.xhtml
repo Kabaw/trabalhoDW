@@ -6,18 +6,21 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-	<link href="#{request.contextPath}/css/usuario.css"
-		rel="stylesheet" type="text/css" />
+<link href="#{request.contextPath}/css/usuario.css" rel="stylesheet"
+	type="text/css" />
 </head>
 <h:body>
 	<div class="topo">
-		<h:outputText value="Olá, #{usuarioLogadoBean.usuario.login}"/>
+		<h:outputText value="Olá, #{usuarioLogadoBean.usuario.login}" />
 	</div>
 	<h:form>
-		<p:panelMenu style="width:300px">
-			<p:menuitem value="Enviar Mensagem"/>
-			<p:menuitem value="Conferir Mensagens"/>
-		</p:panelMenu>
+		<p:growl id="messages" showDetail="true" />
+		<p:menubar style="width:300px">
+			<p:submenu label="Mensagens">
+				<p:menuitem value="Enviar Mensagem" />
+				<p:menuitem value="Conferir Mensagens" />
+			</p:submenu>
+		</p:menubar>
 	</h:form>
 
 </h:body>

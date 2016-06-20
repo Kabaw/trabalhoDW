@@ -4,13 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import model.Grupo;
+import model.Jogo;
 
-public class GrupoJDBC {
+public class JogoJDBC {
 	/*
 	 * Objetivo: Método que salva um usuario no banco de dados
 	 */
-	public void salvar(Grupo grupo) {
+	public void salvar(Jogo jogo) {
 		Connection conexao = ConectaSQL.geraConexao();
 		// Objeto para executar o SQL insert
 		PreparedStatement insereSt = null;
@@ -20,7 +20,7 @@ public class GrupoJDBC {
 			// recebe o SQL insert
 			insereSt = conexao.prepareStatement(sql);
 			// recebe o parâmtros do SQL insert
-			insereSt.setString(1, grupo.getNome());
+			insereSt.setString(1, jogo.getNome());
 			// executa SQL insert
 			insereSt.executeUpdate();
 		} catch (SQLException  e) {
