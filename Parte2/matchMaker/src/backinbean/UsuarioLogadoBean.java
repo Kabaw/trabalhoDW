@@ -11,28 +11,22 @@ import model.Usuario;
 @SessionScoped
 public class UsuarioLogadoBean {
 	private Usuario usuario = new Usuario();
-	
-	
-	
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
-
-
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 
-
-
 	@PostConstruct
-	public void init(){
-		Usuario usuario = (Usuario) FacesContext.getCurrentInstance().
-				getExternalContext().getFlash().get("usuario");
-		if (usuario!=null){
+	public void init() {
+		Usuario usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().
+				getFlash().get("usuario");
+		if (usuario != null) {
 			this.usuario = usuario;
 		}
-		
+
 	}
 }

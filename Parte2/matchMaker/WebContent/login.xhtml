@@ -27,11 +27,9 @@
 					<div class="botoesLogin">
 						<f:facet name="footer">
 							<p:commandButton id="login" value="Login" update="growl"
-								action="#{usuarioBean.login}"
-								oncomplete="handleLoginRequest(xhr, status, args)" />
+								action="#{usuarioBean.login}" />
 							<p:commandButton id="cancelar" value="Cancelar" update="growl"
-								action="#{usuarioBean.voltar}"
-								oncomplete="handleLoginRequest(xhr, status, args)" />
+								action="#{usuarioBean.voltar}" />
 						</f:facet>
 					</div>
 				
@@ -40,18 +38,6 @@
 		</h:form>
 	</div>
 
-	<script type="text/javascript">
-		function handleLoginRequest(xhr, status, args) {
-			if (args.validationFailed || !args.loggedIn) {
-				PF('dlg').jq.effect("shake", {
-					times : 5
-				}, 100);
-			} else {
-				PF('dlg').hide();
-				$('#loginLink').fadeOut();
-			}
-		}
-	</script>
 </h:body>
 
 </html>
