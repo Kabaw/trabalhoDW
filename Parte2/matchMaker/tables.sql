@@ -38,5 +38,3 @@ create table usuariojogo(
 	idusuario integer references usuario(idUsuario),
 	idjogo integer references jogo(idJogo)
 );
-
-

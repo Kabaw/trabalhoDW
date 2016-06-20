@@ -46,6 +46,7 @@ public class UsuarioDAO {
 				sessao.close();
 			} catch (Throwable e) {
 				throw new ExceptionInInitializerError("Erro ao fechar a operacao de usuario. Erro:" + e.getMessage());
+				
 			}
 		}
 	}

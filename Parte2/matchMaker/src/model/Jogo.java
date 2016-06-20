@@ -6,10 +6,14 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "jogo")
 public class Jogo implements Serializable{
 
 	private static final long serialVersionUID = -3119678998469247487L;

@@ -9,6 +9,7 @@ import org.hibernate.service.ServiceRegistry;
  * contém todas configuraçÕes do arquivo hibernate.cfg.xml
 */
 public class HibernateUtil {
+	
 	private static SessionFactory buildSessionFactory() {
 		try {
 			// objeto que armazena configurações do hibernate.cfg.xml
