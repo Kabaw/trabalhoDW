@@ -47,7 +47,7 @@ public class Usuario implements Serializable{
 	@Column(name="dataNascimento", nullable=false)
 	private Date dataNascimento;
 	
-	@OneToMany(mappedBy="remente")
+	@OneToMany(mappedBy="remetente")
 	private List<Mensagem> mensagensEnviadas;
 	
 	@OneToMany(mappedBy="destinatario")
@@ -151,6 +151,8 @@ public class Usuario implements Serializable{
 		}
 		return super.equals(obj);
 	}
+
+	
 	
 	
 }

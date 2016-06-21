@@ -34,7 +34,7 @@ public class Mensagem implements Serializable{
 	private Usuario remetente;
 	
 	@ManyToOne
-	@JoinColumn(name="idUsuario")
+	@JoinColumn(name="idUsuario", insertable=false,updatable=false)
 	private Usuario destinatario;
 	
 	@Column(name="dataMensagem",nullable=false)

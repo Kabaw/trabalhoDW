@@ -1,39 +1,37 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import model.Mensagem;
+import util.HibernateUtil;
 
 public class MensagemDAO {
+	private Session sessao;
+	private Transaction transacao;
+	
 	public void salvar(Mensagem mensagem){
-		Connection conexao = ConectaSQL.geraConexao();
-		// Objeto para executar o SQL insert
-		PreparedStatement insereSt = null;
-		// SQL de inserção
-		String sql = "insert into mensagem(conteudo,remetente,destinatario,dataMensagem,titulo) values(?,?,?,?,?)";
+		sessao = null;
+		transacao = null;
 		try {
-			// recebe o SQL insert
-			insereSt = conexao.prepareStatement(sql);
-			// recebe o parâmtros do SQL insert
-			insereSt.setString(1, mensagem.getConteudo());
-			insereSt.setInt(2, mensagem.getRemetente().getIdUsuario().intValue());
-			insereSt.setInt(3, mensagem.getDestinatario().getIdUsuario().intValue());
-			insereSt.setTimestamp(4, new Timestamp(mensagem.getDataMensagem().getTime()));
-			insereSt.setString(5, mensagem.getTitulo());
-			// executa SQL insert
-			insereSt.executeUpdate();
-		} catch (SQLException  e) {
-			throw new RuntimeException("Erro ao incluir cliente. mensagem:" + e);
+			// abre um sessão com o banco de dados.
+			sessao = HibernateUtil.getSessionFactory().openSession();
+			// inicia um transacao
+			transacao = sessao.beginTransaction();
+			// salva o usuário
+			sessao.saveOrUpdate(mensagem);
+			// confirma a transacao
+			transacao.commit();
+		} catch (HibernateException e) {
+			throw new ExceptionInInitializerError("Não foi possível inserir um usuario. Erro:" + e.getMessage());
 		} finally {
 			try {
-				// fecha conexao com o banco
-				insereSt.close();
-				conexao.close();
+				// fecha a sessao com o banco de dados
+				sessao.close();
 			} catch (Throwable e) {
-				throw new RuntimeException("Erro ao fechar a operação de inserção" + e);
+				throw new ExceptionInInitializerError("Erro ao fechar a operacao de usuario. Erro:" + e.getMessage());
+				
 			}
 		}
 	}

@@ -33,6 +33,7 @@ public class HibernateUtil {
 			return configuration.buildSessionFactory(serviceRegistry);
 
 		} catch (Throwable e) {
+			e.printStackTrace();
 			throw new ExceptionInInitializerError("Criacao do objeto falhou: " + e);
 		}
 	}

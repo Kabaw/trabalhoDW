@@ -1,8 +1,5 @@
 package backinbean;
 
-import java.util.Date;
-
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -25,20 +22,7 @@ public class UsuarioBean {
 		this.usuario = usuario;
 	}
 	
-	@PostConstruct
-	public void init(){
-		usuario = new Usuario();
-		usuario.setIdUsuario(null);
-		usuario.setDataNascimento(new Date());
-		usuario.setEmail("");
-		usuario.setLogin("");
-		usuario.setSenha("");
-		usuario.setNome("");
-		usuario.setSexo("");
-		usuario.setSobrenome("");
 
-		
-	}
 
 	
 
