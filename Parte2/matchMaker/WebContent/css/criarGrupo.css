@@ -1,0 +1,13 @@
+.meio{
+	border:1px solid black;
+	width:900px;
+	height:700px;	
+}
+
+body{
+	margin: 0;
+	position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%)
+}

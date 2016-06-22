@@ -6,13 +6,14 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-
+	<link href="#{request.contextPath}/css/criarGrupo.css" rel="stylesheet"
+		type="text/css" />
 </h:head>
 <h:body>
-	<p:menubar>
-		<p:menuitem value="Login" url="login.xhtml" />
-		<p:menuitem value="Criar Usuário" url="novoUsuario.xhtml" />
-	</p:menubar>
+	<div class="meio">
+		 <p:pickList value="#{grupoBean.usuarios}" var="usuario" controlsLocation="none" itemLabel="#{usuario.login}" itemValue="#{usuario.login}" />
+    
+	</div>
 	
 </h:body>
 </html>

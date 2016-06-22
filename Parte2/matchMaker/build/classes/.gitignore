@@ -1,5 +1,6 @@
-/hibernate.cfg.xml
-/util/
 /backinbean/
 /dao/
+/hibernate.cfg.xml
 /model/
+/recursos/
+/util/
