@@ -1,7 +1,12 @@
 .meio{
 	border:1px solid black;
 	width:900px;
-	height:700px;	
+	height:700px;
+	padding: 10px 10px 10px 10px;	
+}
+
+#tituloPagGrupo{
+	text-align:center;
 }
 
 body{
