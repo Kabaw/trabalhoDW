@@ -5,6 +5,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,7 @@ public class Jogo implements Serializable{
 
 	private static final long serialVersionUID = -3119678998469247487L;
 	
-	@ManyToMany (mappedBy="jogos")
+	@ManyToMany (mappedBy="jogos", cascade = {CascadeType.ALL})
 	private List<Usuario> usuarios;
 	
 	@Column(name="nome", length=20, nullable=false)

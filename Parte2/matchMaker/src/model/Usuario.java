@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -47,18 +48,18 @@ public class Usuario implements Serializable{
 	@Column(name="dataNascimento", nullable=false)
 	private Date dataNascimento;
 	
-	@OneToMany(mappedBy="remetente")
+	@OneToMany(mappedBy="remetente", cascade = {CascadeType.ALL})
 	private List<Mensagem> mensagensEnviadas;
 	
-	@OneToMany(mappedBy="destinatario")
+	@OneToMany(mappedBy="destinatario", cascade = {CascadeType.ALL})
 	private List<Mensagem> mensagensRecebidas;
 	
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.ALL})
 	@JoinTable(name="usuariogrupo", joinColumns  = {@JoinColumn(name="idUsuario",nullable=false,updatable=false)},
 			inverseJoinColumns={@JoinColumn(name="idGrupo",nullable=false,updatable=false)})
 	private List<Grupo> grupos;
 	
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.ALL})
 	@JoinTable(name="usuariojogo", joinColumns  = {@JoinColumn(name="idUsuario",nullable=false,updatable=false)},
 			inverseJoinColumns={@JoinColumn(name="idJogo",nullable=false,updatable=false)})
 	private List<Jogo> jogos;

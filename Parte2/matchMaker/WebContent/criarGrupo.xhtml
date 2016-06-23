@@ -11,15 +11,18 @@
 </h:head>
 <h:body>
 	<div class="meio">
-		
-		<h2 id="tituloPagGrupo">#{grupoBean.titulo}</h2>
-		
-		<p:inputText id="grupo" label="grupo" placeholder="Nome"
-						value="#{grupoBean.grupo.nome}" />
-		<h2/>
-		<p:pickList value="#{grupoBean.usuarios}" var="usuario" controlsLocation="none" itemLabel="#{usuario.login}" itemValue="#{usuario.login}" />
-    
+
+		<h:form>
+			<h2 id="tituloPagGrupo">#{grupoBean.titulo}</h2>
+
+			<p:inputText id="grupo" label="grupo" placeholder="Nome"
+				value="#{grupoBean.grupo.nome}" />
+			<h2 />
+			<p:pickList value="#{grupoBean.usuarios}" var="usuario" controlsLocation="none" itemLabel="#{usuario.login}" itemValue="#{usuario.login}" />
+			<p:commandButton id="salvar" value="Salvar"
+				action="#{grupoBean.salvar}" ajax="false" style="margin-top:5px" />
+		</h:form>
 	</div>
-	
+
 </h:body>
 </html>

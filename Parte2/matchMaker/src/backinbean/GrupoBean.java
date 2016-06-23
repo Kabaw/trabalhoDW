@@ -1,5 +1,6 @@
 package backinbean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,26 +10,36 @@ import javax.faces.bean.SessionScoped;
 
 import org.primefaces.model.DualListModel;
 
+import dao.GrupoDAO;
 import dao.UsuarioDAO;
 import model.Grupo;
 import model.Usuario;
 
 @ManagedBean(name = "grupoBean")
 @SessionScoped
-public class GrupoBean {
+public class GrupoBean implements Serializable {
+	private static final long serialVersionUID = -6507209973009058659L;
 	private Grupo grupo;
 	private DualListModel<Usuario> usuarios;
 	private UsuarioDAO usuarioDAO = new UsuarioDAO();
+	private GrupoDAO grupoDAO = new GrupoDAO();
 	private String titulo;
 	
 	@PostConstruct
 	public void init() {
 		grupo = new Grupo();
 		List<Usuario> usuariosDB = usuarioDAO.listar();
+		
 		List<Usuario> selecionados = new ArrayList<Usuario>();
 		usuarios = new DualListModel<Usuario>(usuariosDB, selecionados);
 		titulo = "Novo Grupo";
 		
+	}
+	
+	public String salvar(){
+		grupo.setUsuarios(usuarios.getTarget());
+		grupoDAO.salvar(grupo);
+		return "";
 	}
 	
 	public Grupo getGrupo() {
