@@ -6,6 +6,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,13 +21,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "usuario")
+@Access(AccessType.FIELD)
 public class Usuario implements Serializable{
 	private static final long serialVersionUID = -4610897792604370929L;
 	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name="idUsuario")
-	private Long idUsuario;
+	private Integer idUsuario;
 	
 	@Column(name="login", length=40, nullable=false, unique=true)
 	private String login;
@@ -54,9 +57,7 @@ public class Usuario implements Serializable{
 	@OneToMany(mappedBy="destinatario", cascade = {CascadeType.ALL})
 	private List<Mensagem> mensagensRecebidas;
 	
-	@ManyToMany(cascade = {CascadeType.ALL})
-	@JoinTable(name="usuariogrupo", joinColumns  = {@JoinColumn(name="idUsuario",nullable=false,updatable=false)},
-			inverseJoinColumns={@JoinColumn(name="idGrupo",nullable=false,updatable=false)})
+	@ManyToMany (mappedBy="usuarios", cascade = {CascadeType.ALL})
 	private List<Grupo> grupos;
 	
 	@ManyToMany(cascade = {CascadeType.ALL})
@@ -78,10 +79,11 @@ public class Usuario implements Serializable{
 		this.senha = senha;
 	}
 	
-	public Long getIdUsuario() {
+    
+	public Integer getIdUsuario() {
 		return idUsuario;
 	}
-	public void setIdUsuario(Long idUsuario) {
+	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 	public String getNome() {

@@ -33,7 +33,6 @@ public class GrupoBean implements Serializable {
 		List<Usuario> selecionados = new ArrayList<Usuario>();
 		usuarios = new DualListModel<Usuario>(usuariosDB, selecionados);
 		titulo = "Novo Grupo";
-		
 	}
 	
 	public String salvar(){

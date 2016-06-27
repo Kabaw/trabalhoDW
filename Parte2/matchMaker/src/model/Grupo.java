@@ -5,11 +5,12 @@ import static javax.persistence.GenerationType.IDENTITY;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -26,8 +27,9 @@ public class Grupo implements Serializable{
 	@Column(name="nome", length=20, nullable=false)
 	private String nome;
 	
-	
-	@ManyToMany (mappedBy="grupos", cascade = {CascadeType.ALL})
+	@ManyToMany
+	@JoinTable(name="usuariogrupo", joinColumns  = {@JoinColumn(name="idgrupo",nullable=false,updatable=false)},
+			inverseJoinColumns={@JoinColumn(name="idusuario",nullable=false,updatable=false)})
 	private List<Usuario> usuarios;
 	
 	
