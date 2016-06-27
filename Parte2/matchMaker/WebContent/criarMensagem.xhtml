@@ -15,7 +15,7 @@
 		<h:form>
 
 			<p:inputText id="destinatario" label="destinatario" placeholder="Destinatario"
-				value="#{mensagemBean.mensagem.destinatario.login}" />
+				value="#{mensagemBean.nomeUsuario}" />
 			<h2 />
 			
 			<p:inputText id="titulo" label="titulo" placeholder="Titulo"
@@ -26,6 +26,8 @@
 				value="#{mensagemBean.mensagem.conteudo}" />
 			<h2 />
 			
+			<p:commandButton id="salvar" value="Salvar"
+				action="#{mensagemBean.salvar}" ajax="false" style="margin-top:5px" />
 		</h:form>
 	</div>
 

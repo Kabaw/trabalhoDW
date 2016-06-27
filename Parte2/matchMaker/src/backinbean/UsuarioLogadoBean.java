@@ -29,4 +29,10 @@ public class UsuarioLogadoBean {
 		}
 
 	}
+	
+	public String mensagens(){
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.getExternalContext().getFlash().put("usuario", usuario);
+		return "mensagem";
+	}
 }

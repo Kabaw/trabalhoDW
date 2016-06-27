@@ -30,11 +30,11 @@ public class Mensagem implements Serializable{
 	@Column(name="titulo",length=80,nullable=true)
 	private String titulo;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne
 	@JoinColumn(name="idUsuario")
 	private Usuario remetente;
 	
-	@ManyToOne (cascade = {CascadeType.ALL})
+	@ManyToOne 
 	@JoinColumn(name="idUsuario", insertable=false,updatable=false)
 	private Usuario destinatario;
 	

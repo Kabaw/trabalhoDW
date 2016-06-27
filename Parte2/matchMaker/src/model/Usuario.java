@@ -51,10 +51,10 @@ public class Usuario implements Serializable{
 	@Column(name="dataNascimento", nullable=false)
 	private Date dataNascimento;
 	
-	@OneToMany(mappedBy="remetente", cascade = {CascadeType.ALL})
+	@OneToMany(mappedBy="remetente")
 	private List<Mensagem> mensagensEnviadas;
 	
-	@OneToMany(mappedBy="destinatario", cascade = {CascadeType.ALL})
+	@OneToMany(mappedBy="destinatario")
 	private List<Mensagem> mensagensRecebidas;
 	
 	@ManyToMany (mappedBy="usuarios", cascade = {CascadeType.ALL})
