@@ -6,21 +6,26 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<link href="#{request.contextPath}/css/criarGrupo.css" rel="stylesheet"
-		type="text/css" />
+	<!--<link href="#{request.contextPath}/css/criarGrupo.css" rel="stylesheet"
+		type="text/css" />-->
 </h:head>
 <h:body>
 	<div class="meio">
 
 		<h:form>
-			<h2 id="tituloPagGrupo">#{grupoBean.titulo}</h2>
 
-			<p:inputText id="grupo" label="grupo" placeholder="Nome"
-				value="#{grupoBean.grupo.nome}" />
+			<p:inputText id="destinatario" label="destinatario" placeholder="Destinatario"
+				value="#{mensagemBean.mensagem.destinatario.login}" />
 			<h2 />
-			<p:pickList value="#{grupoBean.usuarios}" var="usuario" controlsLocation="none" itemLabel="#{usuario.login}" itemValue="#{usuario.login}" />
-			<p:commandButton id="salvar" value="Salvar"
-				action="#{grupoBean.salvar}" ajax="false" style="margin-top:5px" />
+			
+			<p:inputText id="titulo" label="titulo" placeholder="Titulo"
+				value="#{mensagemBean.mensagem.titulo}" />
+			<h2 />
+			
+			<p:inputTextarea id="conteudo" label="conteudo" maxlength="1024"  placeholder="Mensagem"
+				value="#{mensagemBean.mensagem.conteudo}" />
+			<h2 />
+			
 		</h:form>
 	</div>
 
