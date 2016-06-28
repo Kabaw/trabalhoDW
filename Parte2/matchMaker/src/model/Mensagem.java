@@ -5,7 +5,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,12 +30,9 @@ public class Mensagem implements Serializable{
 	private String titulo;
 	
 	@ManyToOne
-	@JoinColumn(name="idUsuario")
-	private Usuario remetente;
-	
-	@ManyToOne 
 	@JoinColumn(name="idUsuario", insertable=false,updatable=false)
 	private Usuario destinatario;
+	
 	
 	@Column(name="dataMensagem",nullable=false)
 	private Date dataMensagem;
@@ -61,18 +57,16 @@ public class Mensagem implements Serializable{
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public Usuario getRemetente() {
-		return remetente;
-	}
-	public void setRemetente(Usuario remetente) {
-		this.remetente = remetente;
-	}
+	
+	
 	public Usuario getDestinatario() {
 		return destinatario;
 	}
+
 	public void setDestinatario(Usuario destinatario) {
 		this.destinatario = destinatario;
 	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

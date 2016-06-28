@@ -51,9 +51,6 @@ public class Usuario implements Serializable{
 	@Column(name="dataNascimento", nullable=false)
 	private Date dataNascimento;
 	
-	@OneToMany(mappedBy="remetente")
-	private List<Mensagem> mensagensEnviadas;
-	
 	@OneToMany(mappedBy="destinatario")
 	private List<Mensagem> mensagensRecebidas;
 	
@@ -119,12 +116,6 @@ public class Usuario implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
-	public List<Mensagem> getMensagensEnviadas() {
-		return mensagensEnviadas;
-	}
-	public void setMensagensEnviadas(List<Mensagem> mensagensEnviadas) {
-		this.mensagensEnviadas = mensagensEnviadas;
 	}
 	public List<Mensagem> getMensagensRecebidas() {
 		return mensagensRecebidas;

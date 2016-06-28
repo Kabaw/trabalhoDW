@@ -25,9 +25,6 @@ public class MensagemBean implements Serializable{
 	@PostConstruct
 	public void init(){
 		this.mensagem = new Mensagem();
-		Usuario usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().
-				getFlash().get("usuario");
-		this.mensagem.setRemetente(usuario);
 		this.mensagem.setDestinatario(new Usuario());
 	}
 	

@@ -12,8 +12,7 @@
 create table mensagem(
 	idMensagem serial primary key,
 	conteudo varchar(1024) not null,
-	remetente integer references usuario(idUsuario) not null,
-	destinatario integer references usuario(idUsuario) not null,
+	idUsuario integer references usuario(idUsuario),
 	dataMensagem timestamp not null,
 	titulo varchar(80)
 );
@@ -40,4 +39,4 @@ create table usuariojogo(
 );
 
 
-select * from usuario;
+
