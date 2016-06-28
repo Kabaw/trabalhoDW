@@ -24,23 +24,23 @@ public class GrupoBean implements Serializable {
 	private UsuarioDAO usuarioDAO = new UsuarioDAO();
 	private GrupoDAO grupoDAO = new GrupoDAO();
 	private String titulo;
-	
+
 	@PostConstruct
 	public void init() {
 		grupo = new Grupo();
 		List<Usuario> usuariosDB = usuarioDAO.listar();
-		
+
 		List<Usuario> selecionados = new ArrayList<Usuario>();
 		usuarios = new DualListModel<Usuario>(usuariosDB, selecionados);
 		titulo = "Novo Grupo";
 	}
-	
-	public String salvar(){
+
+	public String salvar() {
 		grupo.setUsuarios(usuarios.getTarget());
 		grupoDAO.salvar(grupo);
 		return "";
 	}
-	
+
 	public Grupo getGrupo() {
 		return grupo;
 	}
@@ -53,11 +53,10 @@ public class GrupoBean implements Serializable {
 		return usuarios;
 	}
 
-
 	public void setUsuarios(DualListModel<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
-	
+
 	public String getTitulo() {
 		return titulo;
 	}
@@ -66,7 +65,9 @@ public class GrupoBean implements Serializable {
 		this.titulo = titulo;
 	}
 
+	public String voltar() {
 
-	
-	
+		return "voltar";
+	}
+
 }

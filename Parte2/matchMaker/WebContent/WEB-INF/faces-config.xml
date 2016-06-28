@@ -49,4 +49,18 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
 			<to-view-id>/criarMensagem.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/criarMensagem.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/usuario.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/criarGrupo.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/usuario.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>

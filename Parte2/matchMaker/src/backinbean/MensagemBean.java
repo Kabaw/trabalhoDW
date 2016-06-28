@@ -6,7 +6,6 @@ import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 
 import dao.MensagemDAO;
 import dao.UsuarioDAO;
@@ -57,6 +56,11 @@ public class MensagemBean implements Serializable{
 		this.nomeUsuario = nomeUsuario;
 	}
 	
+	
+	public String voltar(){
+		
+		return "voltar";
+	}
 	
 	
 
